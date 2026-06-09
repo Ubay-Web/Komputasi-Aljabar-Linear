@@ -1,0 +1,48 @@
+name: Deploy MyST Site to Pages
+
+on:
+  push:
+    branches:
+      - main # Sesuaikan dengan nama branch kamu (di terminalmu tertulis main)
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-on-version: '20'
+
+      - name: Install MyST CLI
+        run: npm install -g mystmd
+
+      - name: Build Site HTML
+        run: myst build --html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist/site' # Folder hasil build html MyST
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

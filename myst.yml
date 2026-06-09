@@ -1,0 +1,16 @@
+version: 1
+project:
+  id: 16618fd8-81e7-4e92-987f-36405c569003
+  title: KOMPUTASI ALJABAR LINEAR
+  description: "Materi Kuliah Komputasi Aljabar Linear"
+  authors: [Ahmad Subaidi]
+  github: https://github.com/yohanesokta
+  keywords: [Komputasi Aljabar Linier]
+
+site: 
+  template: book-theme
+  options:
+    favicon: https://avatars.githubusercontent.com/u/111877508?v=4
+  toc:
+    - file: README.md
+    - file: Bab1.md
