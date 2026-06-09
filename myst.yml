@@ -6,7 +6,7 @@ project:
   authors: [Ahmad Subaidi]
   keywords: [Komputasi Aljabar Linier]
 
-site: 
+site:
   template: book-theme
   options:
     favicon: https://avatars.githubusercontent.com/u/111877508?v=4

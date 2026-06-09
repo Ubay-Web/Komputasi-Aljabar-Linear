@@ -41,7 +41,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '_build/html' # Folder hasil build html MyST
+          path: 'dist/site' # Folder hasil build html MyST
 
       - name: Deploy to GitHub Pages
         id: deployment
